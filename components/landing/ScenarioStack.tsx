@@ -39,7 +39,7 @@ export default function ScenarioStack() {
                 key={s.claimId}
                 className={`overflow-hidden rounded-panel border transition-colors duration-300 ${
                   isOpen
-                    ? "border-ink-950 bg-ink-950"
+                    ? "border-accent-600 bg-accent-600"
                     : "border-line bg-surface hover:border-ink-200"
                 }`}
               >
@@ -50,7 +50,7 @@ export default function ScenarioStack() {
                 >
                   <span
                     className={`tnum meta shrink-0 ${
-                      isOpen ? "text-white/45" : "text-ink-400"
+                      isOpen ? "text-white/70" : "text-ink-400"
                     }`}
                   >
                     {num}
@@ -58,7 +58,7 @@ export default function ScenarioStack() {
                   <ArrowRight
                     size={13}
                     className={`shrink-0 ${
-                      isOpen ? "text-white/45" : "text-ink-400"
+                      isOpen ? "text-white/70" : "text-ink-400"
                     }`}
                   />
                   <span
@@ -70,7 +70,7 @@ export default function ScenarioStack() {
                   </span>
                   <span
                     className={`hidden shrink-0 items-center gap-2 sm:flex ${
-                      isOpen ? "text-white/60" : "text-ink-400"
+                      isOpen ? "text-white/80" : "text-ink-400"
                     }`}
                   >
                     <span
@@ -90,37 +90,37 @@ export default function ScenarioStack() {
                   data-open={isOpen}
                   className="collapse"
                 >
-                 <div>
-                  <div className="grid border-t border-white/10 sm:grid-cols-[minmax(0,1fr)_auto]">
-                    <div className="px-5 py-7 sm:px-7 sm:py-9">
-                      <p className="pretty max-w-[48ch] text-[17px] leading-relaxed text-white sm:text-[19px]">
-                        {s.blurb}
-                      </p>
-                      <p className="pretty mt-4 max-w-[54ch] text-[13.5px] leading-relaxed text-white/50">
-                        {claim?.headline}
-                      </p>
-                      <p className="tnum mt-6 font-mono text-[12px] text-white/40">
-                        {claim?.id}
-                      </p>
-                    </div>
+                  <div>
+                    <div className="grid border-t border-white/20 sm:grid-cols-[minmax(0,1fr)_auto]">
+                      <div className="px-5 py-7 sm:px-7 sm:py-9">
+                        <p className="pretty max-w-[48ch] text-[17px] leading-relaxed text-white sm:text-[19px]">
+                          {s.blurb}
+                        </p>
+                        <p className="pretty mt-4 max-w-[54ch] text-[13.5px] leading-relaxed text-white/75">
+                          {claim?.headline}
+                        </p>
+                        <p className="tnum mt-6 font-mono text-[12px] text-white/65">
+                          {claim?.id}
+                        </p>
+                      </div>
 
-                    {/* Its own cell, the way the reference splits the CTA. */}
-                    <Link
-                      href={`/claim/${s.claimId}`}
-                      aria-label={`Open claim ${s.claimId}`}
-                      tabIndex={isOpen ? 0 : -1}
-                      className="group flex items-center justify-between gap-4 border-t border-white/10 px-5 py-6 transition-colors duration-200 hover:bg-white/5 sm:w-[190px] sm:border-t-0 sm:border-l sm:px-7"
-                    >
-                      <span className="meta text-white/60 sm:hidden">
-                        Open this claim
-                      </span>
-                      <ArrowRight
-                        size={26}
-                        className="text-white transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </Link>
+                      {/* Its own cell, the way the reference splits the CTA. */}
+                      <Link
+                        href={`/claim/${s.claimId}`}
+                        aria-label={`Open claim ${s.claimId}`}
+                        tabIndex={isOpen ? 0 : -1}
+                        className="group flex items-center justify-between gap-4 border-t border-white/20 px-5 py-6 transition-colors duration-200 hover:bg-white/10 sm:w-[190px] sm:border-t-0 sm:border-l sm:border-white/20 sm:px-7"
+                      >
+                        <span className="meta text-white/80 sm:hidden">
+                          Open this claim
+                        </span>
+                        <ArrowRight
+                          size={26}
+                          className="text-white transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      </Link>
+                    </div>
                   </div>
-                 </div>
                 </div>
               </div>
             );

@@ -58,13 +58,13 @@ export default function TranslationDemo() {
               <p className="meta text-ink-400">What the portal shows you</p>
               <div className="mt-7 min-h-[136px]">
                 <div key={ex.portal} className="anim-rise">
-                    <p className="font-mono text-[15px] leading-relaxed text-ink-700 sm:text-[16.5px]">
-                      {ex.portal}
-                    </p>
-                    <p className="pretty mt-6 max-w-[44ch] text-[13.5px] leading-relaxed text-ink-400">
-                      That is the whole message. No reason, no next step, no way
-                      to tell whether you should wait or worry.
-                    </p>
+                  <p className="font-mono text-[15px] leading-relaxed text-ink-700 sm:text-[16.5px]">
+                    {ex.portal}
+                  </p>
+                  <p className="pretty mt-6 max-w-[44ch] text-[13.5px] leading-relaxed text-ink-400">
+                    That is the whole message. No reason, no next step, no way
+                    to tell whether you should wait or worry.
+                  </p>
                 </div>
               </div>
             </div>
@@ -78,14 +78,14 @@ export default function TranslationDemo() {
                   style={{ "--d": "50ms" } as React.CSSProperties}
                   className="anim-rise"
                 >
-                    <p className="pretty max-w-[48ch] text-[15.5px] leading-relaxed text-ink-900 sm:text-[17px]">
-                      {ex.plain}
-                    </p>
-                    <span
-                      className={`meta mt-6 inline-flex items-center rounded-tile px-2.5 py-1.5 ${ex.tint}`}
-                    >
-                      {ex.verdict}
-                    </span>
+                  <p className="pretty max-w-[48ch] text-[15.5px] leading-relaxed text-ink-900 sm:text-[17px]">
+                    {ex.plain}
+                  </p>
+                  <span
+                    className={`meta mt-6 inline-flex items-center rounded-tile px-2.5 py-1.5 ${ex.tint}`}
+                  >
+                    {ex.verdict}
+                  </span>
                 </div>
               </div>
             </div>

@@ -51,8 +51,7 @@ export interface TrackModel {
 export function buildTrack(claim: Claim): TrackModel {
   const start = claim.submittedOn;
   const lastDated = [...claim.stages].reverse().find((s) => s.date)?.date;
-  const end =
-    claim.tone === "completed" && lastDated ? lastDated : DEMO_TODAY;
+  const end = claim.tone === "completed" && lastDated ? lastDated : DEMO_TODAY;
 
   // Guard against a zero-width window on a claim filed today.
   const totalDays = Math.max(1, daysBetween(start, end));

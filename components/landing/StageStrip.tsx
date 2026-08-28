@@ -20,15 +20,15 @@ export default function StageStrip() {
           <div className="grid divide-y divide-line border-x border-line sm:grid-cols-2 sm:divide-x lg:grid-cols-5 lg:divide-y-0">
             {STAGE_ORDER.map((key, i) => (
               <div key={key} className="h-full bg-surface px-5 py-7">
-                  <span className="tnum meta text-ink-400">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-3.5 text-[15px] leading-snug font-semibold text-ink-950">
-                    {STAGE_LABELS[key]}
-                  </h3>
-                  <p className="pretty mt-2 text-[12.5px] leading-relaxed text-ink-500">
-                    {STAGE_MEANING[key]}
-                  </p>
+                <span className="tnum meta text-ink-400">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3.5 text-[15px] leading-snug font-semibold text-ink-950">
+                  {STAGE_LABELS[key]}
+                </h3>
+                <p className="pretty mt-2 text-[12.5px] leading-relaxed text-ink-500">
+                  {STAGE_MEANING[key]}
+                </p>
               </div>
             ))}
           </div>

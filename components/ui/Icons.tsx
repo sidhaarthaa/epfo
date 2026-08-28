@@ -152,7 +152,13 @@ export function Doc({ className, size = 14 }: P) {
 export function Search({ className, size = 14 }: P) {
   return (
     <svg {...base(size)} className={className}>
-      <circle cx="7.2" cy="7.2" r="4.2" stroke="currentColor" strokeWidth="1.4" />
+      <circle
+        cx="7.2"
+        cy="7.2"
+        r="4.2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
       <path
         d="m10.4 10.4 2.6 2.6"
         stroke="currentColor"

@@ -12,11 +12,7 @@
 export const DEMO_TODAY = "2026-08-28";
 
 export type StageKey =
-  | "submitted"
-  | "employer"
-  | "processing"
-  | "approved"
-  | "disbursed";
+  "submitted" | "employer" | "processing" | "approved" | "disbursed";
 
 export const STAGE_ORDER: StageKey[] = [
   "submitted",
@@ -168,8 +164,7 @@ const CLAIMS: Claim[] = [
 
     action: {
       title: "Nothing. Just wait.",
-      body:
-        "This is the stage where most people panic and file again. Do not do that. A second claim goes to the back of the queue and your first one gets rejected as a duplicate.",
+      body: "This is the stage where most people panic and file again. Do not do that. A second claim goes to the back of the queue and your first one gets rejected as a duplicate.",
       steps: [
         {
           text: "Keep the phone number linked to your UAN switched on. If the officer has a question, an SMS is the only way they will reach you.",
@@ -213,8 +208,7 @@ const CLAIMS: Claim[] = [
 
     escalation: {
       eligible: false,
-      note:
-        "Raising a grievance now would not speed anything up, because your claim is inside the normal processing window. It becomes worth doing if nothing has moved by 11 September.",
+      note: "Raising a grievance now would not speed anything up, because your claim is inside the normal processing window. It becomes worth doing if nothing has moved by 11 September.",
       daysUntilEligible: 14,
     },
   },
@@ -249,9 +243,9 @@ const CLAIMS: Claim[] = [
       "Before releasing money, EPFO matches the name on your bank account against the name on your PF record. Yours do not match exactly. Your PF record says Arjun Mehta, and the account ending 4471 is in the name of Arjun Kumar Mehta. An officer flagged this on 19 August and stopped the claim there. Nothing will move until you fix it, and EPFO will not call, SMS or email you about it. That is why most people only find out weeks later.",
 
     action: {
-      title: "Fix your bank details, then get your employer to approve the change.",
-      body:
-        "This is a two part fix. You update the details, then your company has to digitally approve the update. Budget about 15 minutes of your own time, plus 2 to 3 days of waiting on your employer.",
+      title:
+        "Fix your bank details, then get your employer to approve the change.",
+      body: "This is a two part fix. You update the details, then your company has to digitally approve the update. Budget about 15 minutes of your own time, plus 2 to 3 days of waiting on your employer.",
       steps: [
         {
           text: "Log in to the EPFO member portal, go to Manage, then KYC, and re-enter your bank account number and IFSC code exactly as they appear on your passbook.",
@@ -271,8 +265,7 @@ const CLAIMS: Claim[] = [
       ],
       copyMessage: {
         label: "Copy a message for HR",
-        text:
-          "Hi, my PF final settlement claim (ref EPF-2026-73310, UAN 100773451209) was returned by EPFO because my bank KYC does not match. I have re-submitted my bank details on the member portal. Could you please approve the pending KYC request in the employer portal? It is blocking my claim. Thank you.",
+        text: "Hi, my PF final settlement claim (ref EPF-2026-73310, UAN 100773451209) was returned by EPFO because my bank KYC does not match. I have re-submitted my bank details on the member portal. Could you please approve the pending KYC request in the employer portal? It is blocking my claim. Thank you.",
       },
     },
 
@@ -299,7 +292,11 @@ const CLAIMS: Claim[] = [
         date: "2026-08-19",
         note: "An officer at the Pune office returned the claim over a bank name mismatch. Stuck here since 19 August.",
       },
-      { key: "approved", date: null, note: "Blocked until the bank details are corrected." },
+      {
+        key: "approved",
+        date: null,
+        note: "Blocked until the bank details are corrected.",
+      },
       {
         key: "disbursed",
         date: null,
@@ -309,8 +306,7 @@ const CLAIMS: Claim[] = [
 
     escalation: {
       eligible: true,
-      note:
-        "A grievance is worth raising here, but only after you have fixed the bank details. Raise it if your employer has not approved the corrected details within 5 working days of you asking.",
+      note: "A grievance is worth raising here, but only after you have fixed the bank details. Raise it if your employer has not approved the corrected details within 5 working days of you asking.",
       daysUntilEligible: 0,
     },
   },
@@ -345,9 +341,9 @@ const CLAIMS: Claim[] = [
       "Every claim has to be digitally signed by your company before it reaches EPFO. Acme Interiors has not done that. Your claim has been sitting in their employer portal since 18 August, which is 10 days, when the usual turnaround is 3 to 7 working days. This is almost never deliberate. In most companies one authorised person holds the digital signature key, and claims pile up when that person is on leave or has changed roles.",
 
     action: {
-      title: "Contact your HR team. That is the only thing that will move this.",
-      body:
-        "EPFO cannot act on this claim and cannot chase your employer for you. One message to the right person usually clears it in a day or two.",
+      title:
+        "Contact your HR team. That is the only thing that will move this.",
+      body: "EPFO cannot act on this claim and cannot chase your employer for you. One message to the right person usually clears it in a day or two.",
       steps: [
         {
           text: "Ask HR who holds the company's Digital Signature Certificate. That specific person has to click approve, not HR in general.",
@@ -365,8 +361,7 @@ const CLAIMS: Claim[] = [
       ],
       copyMessage: {
         label: "Copy a message for HR",
-        text:
-          "Hi, I filed a PF advance claim for medical treatment on 18 August (ref EPF-2026-51907, UAN 100915600338). It is still pending employer attestation in the EPFO employer portal, so EPFO has not received it yet. Could whoever holds the company DSC please approve it? It is a medical advance, so it is time sensitive. Thank you.",
+        text: "Hi, I filed a PF advance claim for medical treatment on 18 August (ref EPF-2026-51907, UAN 100915600338). It is still pending employer attestation in the EPFO employer portal, so EPFO has not received it yet. Could whoever holds the company DSC please approve it? It is a medical advance, so it is time sensitive. Thank you.",
       },
     },
 
@@ -399,8 +394,7 @@ const CLAIMS: Claim[] = [
 
     escalation: {
       eligible: false,
-      note:
-        "Give HR a few more days first. A grievance filed too early usually comes back telling you to contact your employer. From 1 September you have a strong case, because you will be past 14 days on a medical advance.",
+      note: "Give HR a few more days first. A grievance filed too early usually comes back telling you to contact your employer. From 1 September you have a strong case, because you will be past 14 days on a medical advance.",
       daysUntilEligible: 4,
     },
   },
@@ -435,8 +429,7 @@ const CLAIMS: Claim[] = [
 
     action: {
       title: "Nothing more to do. Two things worth checking, though.",
-      body:
-        "Your claim is complete. These are housekeeping items so that nothing surprises you later.",
+      body: "Your claim is complete. These are housekeeping items so that nothing surprises you later.",
       steps: [
         {
           text: "Check your bank statement for a credit of ₹4,12,300 dated 11 August 2026. It shows up as a bank transfer from EPFO.",
@@ -487,8 +480,7 @@ const CLAIMS: Claim[] = [
 
     escalation: {
       eligible: false,
-      note:
-        "There is nothing to escalate, the claim is settled. If the money is not in your account, that is a bank side issue, and your branch can trace the transfer using the date and amount.",
+      note: "There is nothing to escalate, the claim is settled. If the money is not in your account, that is a bank side issue, and your branch can trace the transfer using the date and amount.",
       daysUntilEligible: 0,
     },
   },
@@ -524,8 +516,7 @@ const CLAIMS: Claim[] = [
 
     action: {
       title: "Raise a grievance. You have waited long enough for it to work.",
-      body:
-        "EPFO's own service standard for a final settlement is 20 days. You are at 31. A grievance on EPFiGMS, which is EPFO's official complaints portal, puts your claim on a tracked list with a response deadline. That is the one lever that reliably moves a stuck file.",
+      body: "EPFO's own service standard for a final settlement is 20 days. You are at 31. A grievance on EPFiGMS, which is EPFO's official complaints portal, puts your claim on a tracked list with a response deadline. That is the one lever that reliably moves a stuck file.",
       steps: [
         {
           text: "Raise a grievance on the EPFiGMS portal. Choose PF Final Settlement as the category and give your UAN as the reference.",
@@ -572,8 +563,7 @@ const CLAIMS: Claim[] = [
 
     escalation: {
       eligible: true,
-      note:
-        "You are 11 days past EPFO's own 20 day service standard, with no query raised against your claim. This is exactly the situation the grievance system exists for.",
+      note: "You are 11 days past EPFO's own 20 day service standard, with no query raised against your claim. This is exactly the situation the grievance system exists for.",
       daysUntilEligible: 0,
     },
   },
@@ -631,7 +621,7 @@ export function lookupClaim(query: string): Claim | undefined {
   return CLAIMS.find(
     (c) =>
       c.id.replace(/[\s-]/g, "").toLowerCase() === normalised ||
-      c.uan.replace(/[\s-]/g, "") === normalised
+      c.uan.replace(/[\s-]/g, "") === normalised,
   );
 }
 

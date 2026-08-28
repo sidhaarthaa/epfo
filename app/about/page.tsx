@@ -81,62 +81,62 @@ export default function AboutPage() {
       </div>
 
       <Shell className="py-14 lg:py-20">
-          <MetaTag segments={["About"]} />
-          <h1 className="display mt-6 max-w-[20ch] text-[36px] text-ink-950 sm:text-[52px]">
-            What this is,
-            <br />
-            <span className="text-ink-400">and what it is not.</span>
-          </h1>
-          <p className="pretty mt-6 max-w-[68ch] text-[17px] leading-[1.7] text-ink-500">
-            EPFO Saathi is a hackathon prototype. It takes the claim status
-            information a PF member already has access to and rewrites it the
-            way a person would explain it: what stage you are at, why you are
-            there, how long it should take, and what to do about it. That is the
-            whole idea. No new data, just a translation layer.
-          </p>
+        <MetaTag segments={["About"]} />
+        <h1 className="display mt-6 max-w-[20ch] text-[36px] text-ink-950 sm:text-[52px]">
+          What this is,
+          <br />
+          <span className="text-ink-400">and what it is not.</span>
+        </h1>
+        <p className="pretty mt-6 max-w-[68ch] text-[17px] leading-[1.7] text-ink-500">
+          EPFO Saathi is a hackathon prototype. It takes the claim status
+          information a PF member already has access to and rewrites it the way
+          a person would explain it: what stage you are at, why you are there,
+          how long it should take, and what to do about it. That is the whole
+          idea. No new data, just a translation layer.
+        </p>
 
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
-            <div className="h-full rounded-panel border border-accent-100 bg-accent-50 p-7 sm:p-8">
-              <h2 className="meta text-accent-700">
-                Grounded in how it really works
-              </h2>
-              <ul className="mt-6 space-y-4">
-                {REAL.map((r) => (
-                  <li key={r} className="flex gap-3">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-accent-600" />
-                    <span className="pretty text-[14.5px] leading-relaxed text-accent-700/90">
-                      {r}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="h-full rounded-panel border border-accent-100 bg-accent-50 p-7 sm:p-8">
+            <h2 className="meta text-accent-700">
+              Grounded in how it really works
+            </h2>
+            <ul className="mt-6 space-y-4">
+              {REAL.map((r) => (
+                <li key={r} className="flex gap-3">
+                  <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-accent-600" />
+                  <span className="pretty text-[14.5px] leading-relaxed text-accent-700/90">
+                    {r}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                      <div className="h-full rounded-panel border border-warn-100 bg-warn-50 p-7 sm:p-8">
-              <h2 className="meta text-warn-700">Entirely mocked</h2>
-              <ul className="mt-6 space-y-4">
-                {MOCKED.map((m) => (
-                  <li key={m} className="flex gap-3">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-warn-600" />
-                    <span className="pretty text-[14.5px] leading-relaxed text-warn-700/90">
-                      {m}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="h-full rounded-panel border border-warn-100 bg-warn-50 p-7 sm:p-8">
+            <h2 className="meta text-warn-700">Entirely mocked</h2>
+            <ul className="mt-6 space-y-4">
+              {MOCKED.map((m) => (
+                <li key={m} className="flex gap-3">
+                  <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-warn-600" />
+                  <span className="pretty text-[14.5px] leading-relaxed text-warn-700/90">
+                    {m}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* ----------------------------------------------------- jargon list */}
         <section className="mt-16">
-            <MetaTag segments={["Glossary"]} />
-            <h2 className="display mt-6 text-[30px] text-ink-950 sm:text-[38px]">
-              The jargon,
-              <span className="text-ink-400"> decoded</span>
-            </h2>
-            <p className="pretty mt-3 max-w-[56ch] text-[15.5px] leading-relaxed text-ink-500">
-              Terms the official portal uses without ever explaining them.
-            </p>
+          <MetaTag segments={["Glossary"]} />
+          <h2 className="display mt-6 text-[30px] text-ink-950 sm:text-[38px]">
+            The jargon,
+            <span className="text-ink-400"> decoded</span>
+          </h2>
+          <p className="pretty mt-3 max-w-[56ch] text-[15.5px] leading-relaxed text-ink-500">
+            Terms the official portal uses without ever explaining them.
+          </p>
 
           <dl className="mt-8 overflow-hidden rounded-panel border border-line bg-surface shadow-panel">
             {JARGON.map((j) => (
@@ -156,27 +156,27 @@ export default function AboutPage() {
         </section>
 
         <section className="mt-16">
-            <div className="rounded-panel border border-line bg-canvas p-7 sm:p-10">
-              <h2 className="text-[20px] font-semibold tracking-[-0.02em] text-ink-950">
-                A word on trust
-              </h2>
-              <p className="pretty mt-4 max-w-[68ch] text-[15.5px] leading-relaxed text-ink-500">
-                An app that talks confidently about somebody's savings has to be
-                careful. So: this prototype asks for nothing, stores nothing,
-                and sends nothing anywhere. There is no login because there is
-                nothing to log into. The timings it quotes are typical ranges
-                rather than promises. Your real claim can move faster or slower,
-                and only the official EPFO member portal can tell you what it is
-                actually doing.
-              </p>
-              <Link
-                href="/track"
-                className="group mt-8 inline-flex items-center gap-2 rounded-pill bg-ink-950 px-6 py-3 text-[14.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
-              >
-                Try the demo claims
-                <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-            </div>
+          <div className="rounded-panel border border-line bg-canvas p-7 sm:p-10">
+            <h2 className="text-[20px] font-semibold tracking-[-0.02em] text-ink-950">
+              A word on trust
+            </h2>
+            <p className="pretty mt-4 max-w-[68ch] text-[15.5px] leading-relaxed text-ink-500">
+              An app that talks confidently about somebody's savings has to be
+              careful. So: this prototype asks for nothing, stores nothing, and
+              sends nothing anywhere. There is no login because there is nothing
+              to log into. The timings it quotes are typical ranges rather than
+              promises. Your real claim can move faster or slower, and only the
+              official EPFO member portal can tell you what it is actually
+              doing.
+            </p>
+            <Link
+              href="/track"
+              className="group mt-8 inline-flex items-center gap-2 rounded-pill bg-ink-950 px-6 py-3 text-[14.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+            >
+              Try the demo claims
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </section>
       </Shell>
     </>

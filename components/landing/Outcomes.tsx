@@ -65,10 +65,38 @@ function VerdictMini() {
         className="fill-surface stroke-line"
         strokeWidth="1"
       />
-      <rect x="24" y="26" width="42" height="7" rx="3.5" className="fill-ink-200" />
-      <rect x="24" y="42" width="140" height="9" rx="4.5" className="fill-ink-950" />
-      <rect x="24" y="57" width="104" height="9" rx="4.5" className="fill-ink-950" />
-      <rect x="136" y="57" width="30" height="9" rx="4.5" className="fill-ink-200" />
+      <rect
+        x="24"
+        y="26"
+        width="42"
+        height="7"
+        rx="3.5"
+        className="fill-ink-200"
+      />
+      <rect
+        x="24"
+        y="42"
+        width="140"
+        height="9"
+        rx="4.5"
+        className="fill-ink-950"
+      />
+      <rect
+        x="24"
+        y="57"
+        width="104"
+        height="9"
+        rx="4.5"
+        className="fill-ink-950"
+      />
+      <rect
+        x="136"
+        y="57"
+        width="30"
+        height="9"
+        rx="4.5"
+        className="fill-ink-200"
+      />
     </svg>
   );
 }
@@ -86,11 +114,46 @@ function MessageMini() {
         className="fill-surface stroke-line"
         strokeWidth="1"
       />
-      <rect x="24" y="24" width="112" height="6" rx="3" className="fill-ink-200" />
-      <rect x="24" y="36" width="92" height="6" rx="3" className="fill-ink-200" />
-      <rect x="24" y="48" width="60" height="6" rx="3" className="fill-ink-200" />
-      <rect x="96" y="66" width="94" height="22" rx="11" className="fill-ink-950" />
-      <rect x="110" y="75" width="48" height="5" rx="2.5" className="fill-surface" />
+      <rect
+        x="24"
+        y="24"
+        width="112"
+        height="6"
+        rx="3"
+        className="fill-ink-200"
+      />
+      <rect
+        x="24"
+        y="36"
+        width="92"
+        height="6"
+        rx="3"
+        className="fill-ink-200"
+      />
+      <rect
+        x="24"
+        y="48"
+        width="60"
+        height="6"
+        rx="3"
+        className="fill-ink-200"
+      />
+      <rect
+        x="96"
+        y="66"
+        width="94"
+        height="22"
+        rx="11"
+        className="fill-ink-950"
+      />
+      <rect
+        x="110"
+        y="75"
+        width="48"
+        height="5"
+        rx="2.5"
+        className="fill-surface"
+      />
       <circle cx="170" cy="77" r="3" className="fill-surface" />
     </svg>
   );
@@ -103,9 +166,30 @@ function EscalateMini() {
       <rect x="10" y="14" width="180" height="1" className="fill-line" />
       <rect x="10" y="44" width="180" height="1" className="fill-line" />
       <rect x="10" y="74" width="180" height="1" className="fill-line" />
-      <rect x="18" y="22" width="86" height="14" rx="7" className="fill-ink-200" />
-      <rect x="18" y="52" width="132" height="14" rx="7" className="fill-ink-200" />
-      <rect x="18" y="82" width="60" height="10" rx="5" className="fill-ink-950" />
+      <rect
+        x="18"
+        y="22"
+        width="86"
+        height="14"
+        rx="7"
+        className="fill-ink-200"
+      />
+      <rect
+        x="18"
+        y="52"
+        width="132"
+        height="14"
+        rx="7"
+        className="fill-ink-200"
+      />
+      <rect
+        x="18"
+        y="82"
+        width="60"
+        height="10"
+        rx="5"
+        className="fill-ink-950"
+      />
       <circle cx="168" cy="59" r="11" className="fill-ink-950" />
       <path
         d="M164 59h8m0 0-3-3m3 3-3 3"
@@ -156,7 +240,8 @@ export default function Outcomes() {
       <Shell className="py-14 lg:py-20">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <h2 className="display max-w-[13ch] text-[32px] text-ink-950 sm:text-[44px]">
-            What you<br />
+            What you
+            <br />
             <span className="text-ink-400">actually get</span>
           </h2>
           <div className="flex flex-col items-start gap-4 sm:items-end">

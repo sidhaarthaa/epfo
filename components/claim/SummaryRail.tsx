@@ -21,7 +21,8 @@ export default function SummaryRail({ claim }: { claim: Claim }) {
   const stats: { value: string; label: string }[] = [
     {
       value: `${claim.daysSinceSubmission}`,
-      label: claim.tone === "completed" ? "Days start to finish" : "Days elapsed",
+      label:
+        claim.tone === "completed" ? "Days start to finish" : "Days elapsed",
     },
     {
       value: `${track.clearedCount} of 5`,
@@ -42,6 +43,9 @@ export default function SummaryRail({ claim }: { claim: Claim }) {
 
   return (
     <section className="overflow-hidden rounded-panel border border-line bg-surface shadow-panel">
+      {/* State, readable from across the room. */}
+      <div className={`h-1.5 w-full ${tone.fill}`} aria-hidden="true" />
+
       <div className="px-6 pt-6 pb-7">
         <p className="meta text-ink-400">Amount claimed</p>
         <p className="tnum display mt-3 text-[42px] text-ink-950">
@@ -68,7 +72,7 @@ export default function SummaryRail({ claim }: { claim: Claim }) {
             <p className="tnum display text-[30px] leading-none text-white">
               {s.value}
             </p>
-            <p className="meta mt-2.5 text-white/65">{s.label}</p>
+            <p className="meta mt-2.5 text-white/85">{s.label}</p>
           </div>
         ))}
       </div>

@@ -47,7 +47,11 @@ function Node({
   size?: number;
 }) {
   const shell = "relative grid place-items-center rounded-full anim-pop";
-  const style = { width: size, height: size, "--d": `${delay}ms` } as React.CSSProperties;
+  const style = {
+    width: size,
+    height: size,
+    "--d": `${delay}ms`,
+  } as React.CSSProperties;
 
   if (state === "done") {
     return (
@@ -67,7 +71,10 @@ function Node({
 
   if (state === "current") {
     return (
-      <span style={style} className={`${shell} bg-surface ring-2 ring-accent-600`}>
+      <span
+        style={style}
+        className={`${shell} bg-surface ring-2 ring-accent-600`}
+      >
         <span className="h-2.5 w-2.5 rounded-full bg-accent-600" />
       </span>
     );
@@ -119,7 +126,10 @@ function TrackRow({
 
       {/* Axis cell. The bar sits on the shared scale, the chip in the gutter. */}
       <div className="relative h-7">
-        <div className="absolute inset-y-0 left-0" style={{ right: CHIP_GUTTER }}>
+        <div
+          className="absolute inset-y-0 left-0"
+          style={{ right: CHIP_GUTTER }}
+        >
           {bar.hasBar ? (
             <div
               className="absolute top-1/2 flex -translate-y-1/2 items-center"
@@ -216,7 +226,10 @@ export default function Timeline({ claim }: { claim: Claim }) {
         <div className={`${ROW_GRID} border-t border-line px-5 py-2.5 sm:px-7`}>
           <span className="meta text-ink-400">Timeline</span>
           <div className="relative h-4">
-            <div className="absolute inset-y-0 left-0" style={{ right: CHIP_GUTTER }}>
+            <div
+              className="absolute inset-y-0 left-0"
+              style={{ right: CHIP_GUTTER }}
+            >
               {track.ticks.map((t, i) => (
                 <span
                   key={t.pct}
@@ -241,7 +254,9 @@ export default function Timeline({ claim }: { claim: Claim }) {
 
         {/* What the live stage means, said once and said clearly. */}
         {liveStage && (
-          <div className={`border-t border-line px-5 py-5 sm:px-7 ${tone.surface}`}>
+          <div
+            className={`border-t border-line px-5 py-5 sm:px-7 ${tone.surface}`}
+          >
             <p className={`meta ${tone.heading}`}>
               Right now: {STAGE_LABELS[liveStage.key].toLowerCase()}
             </p>

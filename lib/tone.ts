@@ -32,7 +32,7 @@ export const TONE: Record<ClaimTone, ToneStyle> = {
     fill: "bg-accent-600",
     chip: "bg-accent-100 text-accent-700",
     tile: "bg-accent-100 text-accent-700",
-    block: "bg-accent-700",
+    block: "bg-accent-600",
   },
   needs_you: {
     swatch: "bg-warn-600",
@@ -72,6 +72,6 @@ export const TONE: Record<ClaimTone, ToneStyle> = {
     fill: "bg-accent-600",
     chip: "bg-accent-100 text-accent-700",
     tile: "bg-accent-100 text-accent-700",
-    block: "bg-accent-700",
+    block: "bg-accent-600",
   },
 };

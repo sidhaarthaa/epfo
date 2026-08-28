@@ -21,7 +21,9 @@ export default function EtaCard({ claim }: { claim: Claim }) {
     >
       <div className="border-b border-line px-6 py-3.5">
         <h2 className="meta text-ink-400">
-          {claim.tone === "completed" ? "How long it took" : "When to expect it"}
+          {claim.tone === "completed"
+            ? "How long it took"
+            : "When to expect it"}
         </h2>
       </div>
 

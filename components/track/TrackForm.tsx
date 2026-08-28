@@ -38,7 +38,7 @@ export default function TrackForm() {
         go(claim.id);
       } else {
         setError(
-          "No claim matches that. This prototype has five demo claims in it, so pick one of them to see how it works."
+          "No claim matches that. This prototype has five demo claims in it, so pick one of them to see how it works.",
         );
       }
     }, 450);

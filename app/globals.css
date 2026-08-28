@@ -2,35 +2,36 @@
 
 @theme {
   /* ---------------------------------------------------------------- type */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif,
-    system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display:
+    var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* -------------------------------------------------------------- ground */
-  /* Warm off-white page, pure white cards, hairline rules doing the work
-     that shadows would normally do. */
-  --color-canvas: #faf9f7;
+  /* Cool light grey page, pure white cards sitting on it. */
+  --color-canvas: #f1f3f6;
   --color-surface: #ffffff;
-  --color-line: #e5e3dd;
-  --color-line-soft: #efedE8;
+  --color-line: #e2e5ea;
+  --color-line-soft: #eef0f4;
 
   /* ----------------------------------------------------------------- ink */
-  --color-ink-950: #16161a;
-  --color-ink-900: #23232a;
-  --color-ink-700: #45454d;
-  --color-ink-500: #75757e;
-  --color-ink-400: #9b9ba2;
-  --color-ink-200: #d5d4cf;
+  --color-ink-950: #14161a;
+  --color-ink-900: #21242b;
+  --color-ink-700: #434955;
+  --color-ink-500: #717884;
+  --color-ink-400: #9aa0ac;
+  --color-ink-200: #d3d7de;
 
   /* -------------------------------------------------------------- accent */
-  /* One deep green, used sparingly. Reads civic and financial without
-     borrowing government colours. */
-  --color-accent-700: #0a5c47;
-  --color-accent-600: #0d7758;
-  --color-accent-500: #14a077;
-  --color-accent-100: #d8efe6;
-  --color-accent-50: #f0f8f4;
+  /* One electric blue. Carries brand, progress and every positive state, so
+     nothing else in the palette is allowed to be blue. */
+  --color-accent-700: #0d3fb0;
+  --color-accent-600: #1257f0;
+  --color-accent-500: #3b7dff;
+  --color-accent-100: #dbe7ff;
+  --color-accent-50: #eef4ff;
 
   /* -------------------------------------------------------------- shape */
   --radius-tile: 10px;
@@ -41,13 +42,13 @@
 
   /* ------------------------------------------------------------ elevation */
   --shadow-panel:
-    0 1px 2px rgba(22, 22, 26, 0.04), 0 10px 28px -16px rgba(22, 22, 26, 0.14);
+    0 1px 2px rgba(20, 22, 26, 0.04), 0 10px 28px -16px rgba(20, 22, 26, 0.14);
   --shadow-raised:
-    0 2px 4px rgba(22, 22, 26, 0.05), 0 20px 40px -20px rgba(22, 22, 26, 0.22);
-  --shadow-ink: 0 20px 50px -24px rgba(22, 22, 26, 0.55);
+    0 2px 4px rgba(20, 22, 26, 0.05), 0 20px 40px -20px rgba(20, 22, 26, 0.22);
+  --shadow-ink: 0 20px 50px -24px rgba(20, 22, 26, 0.55);
   /* Floating chrome: reads as lifted off the page without a hard edge. */
   --shadow-float:
-    0 1px 2px rgba(22, 22, 26, 0.05), 0 12px 32px -12px rgba(22, 22, 26, 0.18);
+    0 1px 2px rgba(20, 22, 26, 0.05), 0 12px 32px -12px rgba(20, 22, 26, 0.18);
 
   /* ------------------------------------------------------------- signals */
   --color-warn-700: #875008;
@@ -55,10 +56,10 @@
   --color-warn-100: #fbeed4;
   --color-warn-50: #fdf7eb;
 
-  --color-info-700: #1c4d92;
-  --color-info-600: #2563bd;
-  --color-info-100: #dfe9fa;
-  --color-info-50: #f1f6fd;
+  --color-info-700: #3c4655;
+  --color-info-600: #596375;
+  --color-info-100: #e2e6ed;
+  --color-info-50: #f4f6f9;
 
   --color-alert-700: #90311d;
   --color-alert-600: #ba432a;
@@ -144,8 +145,8 @@
   /* Faint construction grid, used behind the hero panel. */
   .blueprint {
     background-image:
-      linear-gradient(to right, rgba(22, 22, 26, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(22, 22, 26, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(20, 22, 26, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(20, 22, 26, 0.05) 1px, transparent 1px);
     background-size: 56px 56px;
   }
 

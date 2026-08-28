@@ -13,8 +13,7 @@ export default function IconTile({
   tint?: string;
   size?: "sm" | "md";
 }) {
-  const box =
-    size === "sm" ? "h-7 w-7 rounded-[9px]" : "h-9 w-9 rounded-tile";
+  const box = size === "sm" ? "h-7 w-7 rounded-[9px]" : "h-9 w-9 rounded-tile";
   return (
     <span className={`grid shrink-0 place-items-center ${box} ${tint}`}>
       {children}
