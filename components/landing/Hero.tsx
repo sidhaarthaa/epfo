@@ -1,11 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Shell from "@/components/ui/Shell";
 import { ArrowRight } from "@/components/ui/Icons";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
   return (
@@ -14,32 +9,23 @@ export default function Hero() {
       <div className="blueprint relative border-b border-line">
         <Shell>
           <div className="pt-20 pb-12 lg:pt-32 lg:pb-16">
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, ease }}
-              className="meta flex items-center gap-2 text-ink-400"
-            >
+            <p className="anim-rise meta flex items-center gap-2 text-ink-400">
               <ArrowRight size={12} />
               Independent prototype
-            </motion.p>
+            </p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.06, ease }}
-              className="display mt-7 max-w-[16ch] text-[44px] text-ink-950 sm:text-[64px] lg:text-[76px] xl:text-[88px]"
+            <h1
+              style={{ "--d": "60ms" } as React.CSSProperties}
+              className="anim-rise display mt-7 max-w-[16ch] text-[44px] text-ink-950 sm:text-[64px] lg:text-[76px] xl:text-[88px]"
             >
               Your PF claim status,
               <br />
               <span className="text-ink-400">explained in plain English</span>
-            </motion.h1>
+            </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.16, ease }}
-              className="mt-10 flex flex-col gap-2.5 sm:flex-row sm:items-center"
+            <div
+              style={{ "--d": "140ms" } as React.CSSProperties}
+              className="anim-rise mt-10 flex flex-col gap-2.5 sm:flex-row sm:items-center"
             >
               <Link
                 href="/track"
@@ -54,18 +40,16 @@ export default function Hero() {
               >
                 How this works
               </Link>
-            </motion.div>
+            </div>
           </div>
         </Shell>
       </div>
 
       {/* Supporting row, split by hairlines like a spec sheet. */}
       <Shell>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.26, ease }}
-          className="grid divide-y divide-line md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto] md:divide-x md:divide-y-0"
+        <div
+          style={{ "--d": "220ms" } as React.CSSProperties}
+          className="anim-fade grid divide-y divide-line md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto] md:divide-x md:divide-y-0"
         >
           <div className="py-6 md:pr-8">
             <p className="pretty max-w-[38ch] text-[13.5px] leading-relaxed text-ink-500">
@@ -92,7 +76,7 @@ export default function Hero() {
             <p className="tnum display text-[26px] text-ink-950">5</p>
             <p className="meta mt-2 text-ink-400">Demo claims, no login</p>
           </div>
-        </motion.div>
+        </div>
       </Shell>
     </section>
   );

@@ -4,7 +4,7 @@
   /* ---------------------------------------------------------------- type */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-display), var(--font-inter), ui-sans-serif,
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif,
     system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* -------------------------------------------------------------- ground */
@@ -179,11 +179,115 @@
     border-radius: 999px;
   }
 
+  /* ------------------------------------------------------------ motion */
+  /* Mount animations only, driven by CSS so no JS runs per frame. Every one
+     is opacity or transform, which the compositor handles without layout,
+     so they stay cheap on low-end phones. Stagger with --d. */
+
+  .anim-rise {
+    animation: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .anim-fade {
+    animation: fade 0.45s ease both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .anim-pop {
+    animation: pop 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  /* Bars grow along X. Scale rather than width, so no layout per frame. */
+  .anim-grow-x {
+    transform-origin: left;
+    animation: grow-x 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .anim-grow-y {
+    transform-origin: top;
+    animation: grow-y 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  /* Height-auto collapse without measuring anything in JS. */
+  .collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .collapse[data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+
+  .collapse > * {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Skip rendering work for off-screen sections until they are scrolled to. */
+  .defer-paint {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
   .no-scrollbar {
     scrollbar-width: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
 

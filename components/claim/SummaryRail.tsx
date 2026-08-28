@@ -1,13 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
 import type { Claim } from "@/lib/claims";
 import { STAGE_LABELS, STAGE_ORDER, stageState } from "@/lib/claims";
 import { buildTrack } from "@/lib/track";
 import { TONE } from "@/lib/tone";
 import { formatRupees, formatDate } from "@/lib/format";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /**
  * The at-a-glance card: the amount stated large on white, then the three
@@ -65,18 +60,16 @@ export default function SummaryRail({ claim }: { claim: Claim }) {
       {/* Solid stat block. White figures, hairline rules between them. */}
       <div className={`${tone.block} px-6 py-2`}>
         {stats.map((s, i) => (
-          <motion.div
+          <div
             key={s.label}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 + i * 0.08, ease }}
-            className="border-b border-white/20 py-4 last:border-b-0"
+            style={{ "--d": `${80 + i * 70}ms` } as React.CSSProperties}
+            className="anim-rise border-b border-white/20 py-4 last:border-b-0"
           >
             <p className="tnum display text-[30px] leading-none text-white">
               {s.value}
             </p>
             <p className="meta mt-2.5 text-white/65">{s.label}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
 

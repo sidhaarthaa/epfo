@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Shell from "@/components/ui/Shell";
-import Reveal from "@/components/Reveal";
 import Hero from "@/components/landing/Hero";
 import StageStrip from "@/components/landing/StageStrip";
 import TranslationDemo from "@/components/landing/TranslationDemo";
@@ -18,9 +17,8 @@ export default function LandingPage() {
       <Outcomes />
 
       {/* -------------------------------------------------------- last CTA */}
-      <section className="border-b border-line bg-ink-950">
+      <section className="defer-paint border-b border-line bg-ink-950">
         <Shell className="py-16 lg:py-24">
-          <Reveal>
             <p className="meta flex items-center gap-2 text-white/45">
               <ArrowRight size={12} />
               No login required
@@ -43,7 +41,6 @@ export default function LandingPage() {
               Track a claim
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
-          </Reveal>
         </Shell>
       </section>
     </>

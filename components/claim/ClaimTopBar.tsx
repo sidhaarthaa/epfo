@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import type { Claim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
@@ -14,13 +12,13 @@ export default function ClaimTopBar({ claim }: { claim: Claim }) {
   const tone = TONE[claim.tone];
 
   return (
-    <div className="sticky top-[84px] z-30 py-2">
+    <div className="z-30 py-2 lg:sticky lg:top-[84px]">
       <Shell>
-        <div className="flex h-12 items-center justify-between gap-4 rounded-pill border border-line bg-canvas/80 pr-2 pl-5 shadow-float backdrop-blur-xl">
+        <div className="flex h-12 items-center justify-between gap-4 rounded-pill border border-line bg-canvas pr-2 pl-5 shadow-float lg:bg-canvas/80 lg:backdrop-blur-xl">
           <nav className="flex min-w-0 items-center gap-2 text-[13px]">
             <Link
               href="/track"
-              className="shrink-0 text-ink-400 transition-colors hover:text-ink-900"
+              className="-ml-2 flex min-h-11 shrink-0 items-center px-2 text-ink-400 transition-colors hover:text-ink-900"
             >
               Claims
             </Link>

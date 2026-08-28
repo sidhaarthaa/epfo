@@ -1,10 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import type { Claim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /**
  * The answer, first. Big plain-language headline, the reasoning under it, and
@@ -14,12 +9,7 @@ export default function VerdictPanel({ claim }: { claim: Claim }) {
   const tone = TONE[claim.tone];
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease }}
-      className="overflow-hidden rounded-panel border border-line bg-surface shadow-panel"
-    >
+    <section className="anim-rise overflow-hidden rounded-panel border border-line bg-surface shadow-panel">
       <div className="px-6 pt-8 pb-7 sm:px-9 sm:pt-10">
         <div className="flex items-center gap-2.5">
           <span
@@ -44,6 +34,6 @@ export default function VerdictPanel({ claim }: { claim: Claim }) {
           {claim.portalStatus}
         </p>
       </div>
-    </motion.section>
+    </section>
   );
 }

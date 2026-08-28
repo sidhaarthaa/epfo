@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import type { Claim } from "@/lib/claims";
 import { DEMO_SHORTCUTS, getClaim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
@@ -15,31 +12,15 @@ import EtaCard from "./EtaCard";
 import EscalationCard from "./EscalationCard";
 import ClaimDetails from "./ClaimDetails";
 
-const ease = [0.16, 1, 0.3, 1] as const;
-
-function Rise({
-  children,
-  delay,
-}: {
-  children: React.ReactNode;
-  delay: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, delay, ease }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 /**
- * Two-column workspace. The narrative runs down the main column, and the
- * context that you want visible while reading it lives in a rail that sticks
- * as you scroll. On narrow screens the rail folds under the timeline, so the
- * summary and the timing still come before the long-form details.
+ * One grid, three blocks, placed rather than duplicated.
+ *
+ * An earlier version rendered the rail twice, once for narrow screens and once
+ * for wide, with one copy hidden. That doubled the DOM on the phones least able
+ * to afford it. Here every panel is rendered exactly once: on a phone the three
+ * blocks stack in source order, so a phone reads verdict, timeline and what to
+ * do before it reaches the supporting numbers; from the large breakpoint the
+ * rail moves into its own column and sticks.
  */
 export default function ClaimDashboard({ claim }: { claim: Claim }) {
   const others = DEMO_SHORTCUTS.filter((s) => s.claimId !== claim.id);
@@ -48,84 +29,52 @@ export default function ClaimDashboard({ claim }: { claim: Claim }) {
     <>
       <ClaimTopBar claim={claim} />
 
-      <Shell className="py-7 sm:py-9">
-        <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1fr)_366px] lg:gap-7">
-          {/* ------------------------------------------------ main column */}
-          <div className="flex min-w-0 flex-col gap-5">
+      <Shell className="py-6 sm:py-9">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_366px] lg:items-start lg:gap-7">
+          <div className="flex min-w-0 flex-col gap-5 lg:col-start-1 lg:row-start-1">
             <VerdictPanel claim={claim} />
-
-            <Rise delay={0.12}>
-              <Timeline claim={claim} />
-            </Rise>
-
-            {/* On mobile the rail folds in here, above the long content. */}
-            <div className="flex flex-col gap-5 lg:hidden">
-              <Rise delay={0.16}>
-                <SummaryRail claim={claim} />
-              </Rise>
-              <Rise delay={0.2}>
-                <EtaCard claim={claim} />
-              </Rise>
-            </div>
-
-            <Rise delay={0.22}>
-              <ActionCard claim={claim} />
-            </Rise>
-
-            <div className="lg:hidden">
-              <Rise delay={0.26}>
-                <EscalationCard claim={claim} />
-              </Rise>
-            </div>
-
-            <Rise delay={0.3}>
-              <ClaimDetails claim={claim} />
-            </Rise>
-
-            {/* No dead ends. Always offer the next scenario. */}
-            <Rise delay={0.36}>
-              <section className="rounded-panel border border-dashed border-ink-200 px-6 py-6">
-                <h2 className="text-[15px] font-semibold tracking-[-0.02em] text-ink-950">
-                  See a different situation
-                </h2>
-                <p className="mt-1 text-[13.5px] text-ink-500">
-                  Four other demo claims, each stuck in its own way.
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {others.map((s) => {
-                    const c = getClaim(s.claimId);
-                    const tone = TONE[s.tone];
-                    return (
-                      <Link
-                        key={s.claimId}
-                        href={`/claim/${s.claimId}`}
-                        className="lift inline-flex items-center gap-2 rounded-pill border border-line bg-surface py-2 pr-3.5 pl-2.5 text-[13px] font-medium text-ink-700"
-                      >
-                        <span
-                          className={`h-2.5 w-2.5 rounded-[3px] ${tone.swatch}`}
-                          aria-hidden="true"
-                        />
-                        {c?.statusLabel}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </section>
-            </Rise>
+            <Timeline claim={claim} />
+            <ActionCard claim={claim} />
           </div>
 
-          {/* -------------------------------------------------- sticky rail */}
-          <aside className="hidden flex-col gap-5 lg:sticky lg:top-[156px] lg:flex">
-            <Rise delay={0.08}>
-              <SummaryRail claim={claim} />
-            </Rise>
-            <Rise delay={0.14}>
-              <EtaCard claim={claim} />
-            </Rise>
-            <Rise delay={0.2}>
-              <EscalationCard claim={claim} />
-            </Rise>
+          <aside className="flex flex-col gap-5 lg:sticky lg:top-[156px] lg:col-start-2 lg:row-start-1 lg:row-span-2">
+            <SummaryRail claim={claim} />
+            <EtaCard claim={claim} />
+            <EscalationCard claim={claim} />
           </aside>
+
+          <div className="flex min-w-0 flex-col gap-5 lg:col-start-1 lg:row-start-2">
+            <ClaimDetails claim={claim} />
+
+            {/* No dead ends. Always offer the next scenario. */}
+            <section className="rounded-panel border border-dashed border-ink-200 px-5 py-6 sm:px-6">
+              <h2 className="text-[15px] font-semibold tracking-[-0.02em] text-ink-950">
+                See a different situation
+              </h2>
+              <p className="mt-1 text-[13.5px] text-ink-500">
+                Four other demo claims, each stuck in its own way.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {others.map((s) => {
+                  const c = getClaim(s.claimId);
+                  const tone = TONE[s.tone];
+                  return (
+                    <Link
+                      key={s.claimId}
+                      href={`/claim/${s.claimId}`}
+                      className="lift inline-flex min-h-11 items-center gap-2 rounded-pill border border-line bg-surface py-2 pr-4 pl-3 text-[13px] font-medium text-ink-700"
+                    >
+                      <span
+                        className={`h-2.5 w-2.5 rounded-[3px] ${tone.swatch}`}
+                        aria-hidden="true"
+                      />
+                      {c?.statusLabel}
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          </div>
         </div>
       </Shell>
     </>

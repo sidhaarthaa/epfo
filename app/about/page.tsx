@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Reveal from "@/components/Reveal";
 import Shell from "@/components/ui/Shell";
 import MetaTag from "@/components/ui/MetaTag";
 import { ArrowRight } from "@/components/ui/Icons";
@@ -82,7 +81,6 @@ export default function AboutPage() {
       </div>
 
       <Shell className="py-14 lg:py-20">
-        <Reveal>
           <MetaTag segments={["About"]} />
           <h1 className="display mt-6 max-w-[20ch] text-[36px] text-ink-950 sm:text-[52px]">
             What this is,
@@ -96,10 +94,8 @@ export default function AboutPage() {
             there, how long it should take, and what to do about it. That is the
             whole idea. No new data, just a translation layer.
           </p>
-        </Reveal>
 
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
-          <Reveal>
             <div className="h-full rounded-panel border border-accent-100 bg-accent-50 p-7 sm:p-8">
               <h2 className="meta text-accent-700">
                 Grounded in how it really works
@@ -115,10 +111,8 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-          </Reveal>
 
-          <Reveal delay={0.05}>
-            <div className="h-full rounded-panel border border-warn-100 bg-warn-50 p-7 sm:p-8">
+                      <div className="h-full rounded-panel border border-warn-100 bg-warn-50 p-7 sm:p-8">
               <h2 className="meta text-warn-700">Entirely mocked</h2>
               <ul className="mt-6 space-y-4">
                 {MOCKED.map((m) => (
@@ -131,12 +125,10 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-          </Reveal>
         </div>
 
         {/* ----------------------------------------------------- jargon list */}
         <section className="mt-16">
-          <Reveal>
             <MetaTag segments={["Glossary"]} />
             <h2 className="display mt-6 text-[30px] text-ink-950 sm:text-[38px]">
               The jargon,
@@ -145,7 +137,6 @@ export default function AboutPage() {
             <p className="pretty mt-3 max-w-[56ch] text-[15.5px] leading-relaxed text-ink-500">
               Terms the official portal uses without ever explaining them.
             </p>
-          </Reveal>
 
           <dl className="mt-8 overflow-hidden rounded-panel border border-line bg-surface shadow-panel">
             {JARGON.map((j) => (
@@ -165,7 +156,6 @@ export default function AboutPage() {
         </section>
 
         <section className="mt-16">
-          <Reveal>
             <div className="rounded-panel border border-line bg-canvas p-7 sm:p-10">
               <h2 className="text-[20px] font-semibold tracking-[-0.02em] text-ink-950">
                 A word on trust
@@ -187,7 +177,6 @@ export default function AboutPage() {
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </div>
-          </Reveal>
         </section>
       </Shell>
     </>

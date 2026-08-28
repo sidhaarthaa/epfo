@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Shell from "@/components/ui/Shell";
 import MetaTag from "@/components/ui/MetaTag";
 
@@ -44,7 +43,7 @@ export default function TranslationDemo() {
   const ex = EXAMPLES[i];
 
   return (
-    <section className="border-b border-line bg-canvas">
+    <section className="defer-paint border-b border-line bg-canvas">
       <Shell className="py-14 lg:py-18">
         <MetaTag segments={["The difference"]} />
 
@@ -58,14 +57,7 @@ export default function TranslationDemo() {
             <div className="border-b border-line bg-canvas px-6 py-9 sm:px-9 sm:py-11 md:border-r md:border-b-0">
               <p className="meta text-ink-400">What the portal shows you</p>
               <div className="mt-7 min-h-[136px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={ex.portal}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-                  >
+                <div key={ex.portal} className="anim-rise">
                     <p className="font-mono text-[15px] leading-relaxed text-ink-700 sm:text-[16.5px]">
                       {ex.portal}
                     </p>
@@ -73,8 +65,7 @@ export default function TranslationDemo() {
                       That is the whole message. No reason, no next step, no way
                       to tell whether you should wait or worry.
                     </p>
-                  </motion.div>
-                </AnimatePresence>
+                </div>
               </div>
             </div>
 
@@ -82,18 +73,11 @@ export default function TranslationDemo() {
             <div className="px-6 py-9 sm:px-9 sm:py-11">
               <p className="meta text-accent-600">What EPFO Saathi says</p>
               <div className="mt-7 min-h-[136px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={ex.plain}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{
-                      duration: 0.32,
-                      delay: 0.05,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  >
+                <div
+                  key={ex.plain}
+                  style={{ "--d": "50ms" } as React.CSSProperties}
+                  className="anim-rise"
+                >
                     <p className="pretty max-w-[48ch] text-[15.5px] leading-relaxed text-ink-900 sm:text-[17px]">
                       {ex.plain}
                     </p>
@@ -102,34 +86,33 @@ export default function TranslationDemo() {
                     >
                       {ex.verdict}
                     </span>
-                  </motion.div>
-                </AnimatePresence>
+                </div>
               </div>
             </div>
           </div>
 
           {/* ------------------------------------------------------ selector */}
-          <div className="flex items-center gap-2 border-t border-line px-6 py-3.5 sm:px-9">
+          <div className="flex items-center gap-2 border-t border-line px-6 sm:px-9">
             {EXAMPLES.map((e, n) => (
               <button
                 key={e.portal}
                 onClick={() => setI(n)}
                 aria-label={`Show example ${n + 1}`}
-                className="group relative h-1 flex-1 overflow-hidden rounded-full bg-line"
+                className="group flex min-h-11 flex-1 items-center py-5"
               >
-                {n === i && (
-                  <motion.span
-                    key={`${i}-${paused}`}
-                    className="absolute inset-y-0 left-0 rounded-full bg-ink-950"
-                    initial={{ width: paused ? "100%" : "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{
-                      duration: paused ? 0.25 : DWELL / 1000,
-                      ease: "linear",
-                    }}
-                  />
-                )}
-                <span className="absolute inset-0 transition-colors group-hover:bg-ink-200" />
+                <span className="relative h-1 w-full overflow-hidden rounded-full bg-line transition-colors group-hover:bg-ink-200">
+                  {n === i && (
+                    <span
+                      key={`${i}-${paused}`}
+                      style={
+                        {
+                          animationDuration: paused ? "0.25s" : `${DWELL}ms`,
+                        } as React.CSSProperties
+                      }
+                      className="absolute inset-y-0 left-0 w-full origin-left rounded-full bg-ink-950 [animation-fill-mode:both] [animation-name:grow-x] [animation-timing-function:linear]"
+                    />
+                  )}
+                </span>
               </button>
             ))}
           </div>

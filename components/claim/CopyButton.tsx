@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy } from "@/components/ui/Icons";
 
 export default function CopyButton({
@@ -27,35 +26,10 @@ export default function CopyButton({
   return (
     <button
       onClick={copy}
-      className="inline-flex items-center gap-2 rounded-lg bg-ink-950 px-4 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+      className="inline-flex min-h-11 items-center gap-2 rounded-pill bg-ink-950 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
     >
-      <AnimatePresence mode="wait" initial={false}>
-        {copied ? (
-          <motion.span
-            key="done"
-            initial={{ opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -3 }}
-            transition={{ duration: 0.16 }}
-            className="inline-flex items-center gap-2"
-          >
-            <Check size={13} />
-            Copied
-          </motion.span>
-        ) : (
-          <motion.span
-            key="idle"
-            initial={{ opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -3 }}
-            transition={{ duration: 0.16 }}
-            className="inline-flex items-center gap-2"
-          >
-            <Copy size={13} />
-            {label}
-          </motion.span>
-        )}
-      </AnimatePresence>
+      {copied ? <Check size={13} /> : <Copy size={13} />}
+      {copied ? "Copied" : label}
     </button>
   );
 }

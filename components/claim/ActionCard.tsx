@@ -1,13 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
 import type { Claim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
 import CopyButton from "./CopyButton";
 import IconTile from "@/components/ui/IconTile";
 import { Check, Bang } from "@/components/ui/Icons";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function ActionCard({ claim }: { claim: Claim }) {
   const tone = TONE[claim.tone];
@@ -41,12 +36,10 @@ export default function ActionCard({ claim }: { claim: Claim }) {
       {/* Steps sit on white so they read as a checklist, not decoration. */}
       <ol className="border-t border-line">
         {claim.action.steps.map((step, i) => (
-          <motion.li
+          <li
             key={step.text}
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.08 + i * 0.06, ease }}
-            className="flex gap-4 border-b border-line px-6 py-4 last:border-b-0 sm:px-9 sm:py-5"
+            style={{ "--d": `${60 + i * 55}ms` } as React.CSSProperties}
+            className="anim-fade flex gap-4 border-b border-line px-6 py-4 last:border-b-0 sm:px-9 sm:py-5"
           >
             <span
               className={`tnum mt-px grid h-6 w-6 shrink-0 place-items-center rounded-tile text-[11.5px] font-bold ${tone.chip}`}
@@ -63,7 +56,7 @@ export default function ActionCard({ claim }: { claim: Claim }) {
                 </span>
               )}
             </span>
-          </motion.li>
+          </li>
         ))}
       </ol>
 

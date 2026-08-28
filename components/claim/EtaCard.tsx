@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import type { Claim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
 
@@ -38,15 +35,14 @@ export default function EtaCard({ claim }: { claim: Claim }) {
 
         <div className="mt-6">
           <div className="h-1.5 overflow-hidden rounded-full bg-line">
-            <motion.div
-              className={`h-full rounded-full ${tone.fill}`}
-              initial={{ width: 0 }}
-              animate={{ width: `${claim.eta.elapsedPct}%` }}
-              transition={{
-                duration: 1,
-                delay: 0.3,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+            <div
+              className={`anim-grow-x h-full rounded-full ${tone.fill}`}
+              style={
+                {
+                  width: `${claim.eta.elapsedPct}%`,
+                  "--d": "260ms",
+                } as React.CSSProperties
+              }
             />
           </div>
           <div className="mt-2.5 flex flex-wrap justify-between gap-x-4 gap-y-1 text-[12px] text-ink-400">

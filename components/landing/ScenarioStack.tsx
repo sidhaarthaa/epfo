@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Shell from "@/components/ui/Shell";
 import { DEMO_SHORTCUTS, getClaim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
 import { ArrowRight } from "@/components/ui/Icons";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /**
  * An expandable stack. One scenario is open at a time: it becomes a dark panel
@@ -20,7 +17,7 @@ export default function ScenarioStack() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="border-b border-line bg-canvas">
+    <section className="defer-paint border-b border-line bg-canvas">
       <Shell className="py-14 lg:py-20">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <h2 className="display max-w-[14ch] text-[32px] text-ink-950 sm:text-[44px]">
@@ -88,13 +85,12 @@ export default function ScenarioStack() {
                     exit would leave the collapsing panel's link focusable
                     until an animation frame arrives, which a background tab
                     never gets. */}
-                <motion.div
-                  initial={false}
-                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                  transition={{ duration: 0.4, ease }}
+                <div
                   aria-hidden={!isOpen}
-                  className="overflow-hidden"
+                  data-open={isOpen}
+                  className="collapse"
                 >
+                 <div>
                   <div className="grid border-t border-white/10 sm:grid-cols-[minmax(0,1fr)_auto]">
                     <div className="px-5 py-7 sm:px-7 sm:py-9">
                       <p className="pretty max-w-[48ch] text-[17px] leading-relaxed text-white sm:text-[19px]">
@@ -124,7 +120,8 @@ export default function ScenarioStack() {
                       />
                     </Link>
                   </div>
-                </motion.div>
+                 </div>
+                </div>
               </div>
             );
           })}

@@ -3,14 +3,11 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import { DEMO_SHORTCUTS, getClaim, lookupClaim } from "@/lib/claims";
 import { TONE } from "@/lib/tone";
 import Shell from "@/components/ui/Shell";
 import MetaTag from "@/components/ui/MetaTag";
 import { ArrowRight, Search, Bang } from "@/components/ui/Icons";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function TrackForm() {
   const router = useRouter();
@@ -66,11 +63,7 @@ export default function TrackForm() {
       </div>
 
       <Shell className="py-12 lg:py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease }}
-        >
+        <div className="anim-rise">
           <h1 className="display max-w-[16ch] text-[36px] text-ink-950 sm:text-[48px]">
             Track your claim
           </h1>
@@ -79,15 +72,13 @@ export default function TrackForm() {
             number that follows you from job to job. No password, no OTP, and
             nothing you type here is sent anywhere.
           </p>
-        </motion.div>
+        </div>
 
         <div className="mt-10 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:gap-8">
           {/* -------------------------------------------------------- search */}
-          <motion.section
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.06, ease }}
-            className="overflow-hidden rounded-panel border border-line bg-surface shadow-panel"
+          <section
+            style={{ "--d": "60ms" } as React.CSSProperties}
+            className="anim-rise overflow-hidden rounded-panel border border-line bg-surface shadow-panel"
           >
             <form onSubmit={onSubmit} className="p-6 sm:p-8">
               <label
@@ -127,21 +118,15 @@ export default function TrackForm() {
                 </button>
               </div>
 
-              <AnimatePresence>
-                {error && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.26, ease }}
-                  >
-                    <p className="pretty mt-4 flex gap-2.5 rounded-tile border border-warn-100 bg-warn-50 px-4 py-3 text-[13.5px] leading-relaxed text-warn-700">
-                      <Bang size={15} className="mt-px shrink-0" />
-                      <span>{error}</span>
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {error && (
+                <p
+                  role="alert"
+                  className="pretty anim-rise mt-4 flex gap-2.5 rounded-tile border border-warn-100 bg-warn-50 px-4 py-3 text-[13.5px] leading-relaxed text-warn-700"
+                >
+                  <Bang size={15} className="mt-px shrink-0" />
+                  <span>{error}</span>
+                </p>
+              )}
             </form>
 
             <div className="border-t border-line bg-canvas px-6 py-5 sm:px-8">
@@ -154,13 +139,12 @@ export default function TrackForm() {
                 to authenticate against, and nothing of yours to leak.
               </p>
             </div>
-          </motion.section>
+          </section>
 
           {/* ----------------------------------------------------- scenarios */}
-          <motion.section
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.12, ease }}
+          <section
+            style={{ "--d": "120ms" } as React.CSSProperties}
+            className="anim-rise"
           >
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-[15.5px] font-semibold text-ink-950">
@@ -208,7 +192,7 @@ export default function TrackForm() {
                 );
               })}
             </div>
-          </motion.section>
+          </section>
         </div>
       </Shell>
     </>

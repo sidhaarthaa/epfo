@@ -1,11 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Shell from "@/components/ui/Shell";
 import { ArrowRight, Check, Bang } from "@/components/ui/Icons";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /* --------------------------------------------------- flat mini visuals */
 
@@ -157,7 +152,7 @@ const CARDS = [
 
 export default function Outcomes() {
   return (
-    <section className="border-b border-line">
+    <section className="defer-paint border-b border-line">
       <Shell className="py-14 lg:py-20">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <h2 className="display max-w-[13ch] text-[32px] text-ink-950 sm:text-[44px]">
@@ -183,12 +178,8 @@ export default function Outcomes() {
           {CARDS.map((c, i) => {
             const Visual = c.visual;
             return (
-              <motion.article
+              <article
                 key={c.lead}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.06, ease }}
                 className={`flex flex-col overflow-hidden rounded-panel border border-line bg-surface ${
                   c.span ? "lg:col-span-2" : ""
                 }`}
@@ -211,7 +202,7 @@ export default function Outcomes() {
                   </p>
                   <p className="meta mt-6 text-ink-400">{c.tag}</p>
                 </div>
-              </motion.article>
+              </article>
             );
           })}
         </div>

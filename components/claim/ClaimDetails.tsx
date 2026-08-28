@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import type { Claim } from "@/lib/claims";
 import { formatDate, formatRupees } from "@/lib/format";
 import { Chevron } from "@/components/ui/Icons";
@@ -46,60 +45,53 @@ export default function ClaimDetails({ claim }: { claim: Claim }) {
             Claim reference, PF number, amount and dates
           </span>
         </span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-          className="grid h-7 w-7 shrink-0 place-items-center rounded-tile border border-line text-ink-500"
+        <span
+          className={`grid h-7 w-7 shrink-0 place-items-center rounded-tile border border-line text-ink-500 transition-transform duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
         >
           <Chevron size={13} />
-        </motion.span>
+        </span>
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <dl className="border-t border-line">
-              {rows.map((r) => (
-                <div
-                  key={r.label}
-                  className="flex flex-col gap-1 border-b border-line px-6 py-3.5 sm:flex-row sm:items-baseline sm:gap-6 sm:px-7"
-                >
-                  <dt className="meta shrink-0 pt-1 text-ink-400 sm:w-44">
-                    {r.label}
-                  </dt>
-                  <dd className="min-w-0 flex-1">
-                    <span className="tnum block text-[14.5px] font-medium break-words text-ink-950">
-                      {r.value}
+      {/* Collapse is a CSS grid-row transition, so nothing is measured in JS. */}
+      <div className="collapse" data-open={open}>
+        <div>
+          <dl className="border-t border-line">
+            {rows.map((r) => (
+              <div
+                key={r.label}
+                className="flex flex-col gap-1 border-b border-line px-6 py-3.5 sm:flex-row sm:items-baseline sm:gap-6 sm:px-7"
+              >
+                <dt className="meta shrink-0 pt-1 text-ink-400 sm:w-44">
+                  {r.label}
+                </dt>
+                <dd className="min-w-0 flex-1">
+                  <span className="tnum block text-[14.5px] font-medium break-words text-ink-950">
+                    {r.value}
+                  </span>
+                  {r.hint && (
+                    <span className="pretty mt-1 block text-[12.5px] leading-relaxed text-ink-400">
+                      {r.hint}
                     </span>
-                    {r.hint && (
-                      <span className="pretty mt-1 block text-[12.5px] leading-relaxed text-ink-400">
-                        {r.hint}
-                      </span>
-                    )}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
 
-            <div className="bg-warn-50 px-6 py-4 sm:px-7">
-              <p className="pretty max-w-[70ch] text-[13px] leading-relaxed text-warn-700">
-                <span className="font-semibold">
-                  Demo data for prototype purposes.
-                </span>{" "}
-                This member, employer, UAN, PF number and amount are invented.
-                No Aadhaar number, PAN, OTP or real bank detail exists anywhere
-                in this app.
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div className="bg-warn-50 px-6 py-4 sm:px-7">
+            <p className="pretty max-w-[70ch] text-[13px] leading-relaxed text-warn-700">
+              <span className="font-semibold">
+                Demo data for prototype purposes.
+              </span>{" "}
+              This member, employer, UAN, PF number and amount are invented. No
+              Aadhaar number, PAN, OTP or real bank detail exists anywhere in
+              this app.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
