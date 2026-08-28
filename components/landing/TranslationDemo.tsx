@@ -109,7 +109,7 @@ export default function TranslationDemo() {
                           animationDuration: paused ? "0.25s" : `${DWELL}ms`,
                         } as React.CSSProperties
                       }
-                      className="absolute inset-y-0 left-0 w-full origin-left rounded-full bg-ink-950 [animation-fill-mode:both] [animation-name:grow-x] [animation-timing-function:linear]"
+                      className="absolute inset-y-0 left-0 w-full origin-left rounded-full bg-accent-600 [animation-fill-mode:both] [animation-name:grow-x] [animation-timing-function:linear]"
                     />
                   )}
                 </span>

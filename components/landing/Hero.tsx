@@ -29,7 +29,7 @@ export default function Hero() {
             >
               <Link
                 href="/track"
-                className="group inline-flex items-center justify-center gap-2 rounded-pill bg-ink-950 px-7 py-3.5 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+                className="group inline-flex items-center justify-center gap-2 rounded-pill bg-accent-600 px-7 py-3.5 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-accent-700"
               >
                 Track your claim
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -73,7 +73,7 @@ export default function Hero() {
           </div>
 
           <div className="py-6 md:pl-8">
-            <p className="tnum display text-[26px] text-ink-950">5</p>
+            <p className="tnum display text-[30px] text-accent-600">5</p>
             <p className="meta mt-2 text-ink-400">Demo claims, no login</p>
           </div>
         </div>

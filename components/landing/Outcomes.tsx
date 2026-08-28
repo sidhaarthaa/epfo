@@ -43,7 +43,7 @@ function TrackerMini() {
               width={(r.w / 100) * 136}
               height="8"
               rx="4"
-              className={r.live ? "fill-ink-950" : "fill-ink-200"}
+              className={r.live ? "fill-accent-600" : "fill-ink-200"}
             />
           )}
         </g>
@@ -144,7 +144,7 @@ function MessageMini() {
         width="94"
         height="22"
         rx="11"
-        className="fill-ink-950"
+        className="fill-accent-600"
       />
       <rect
         x="110"
@@ -188,9 +188,9 @@ function EscalateMini() {
         width="60"
         height="10"
         rx="5"
-        className="fill-ink-950"
+        className="fill-accent-600"
       />
-      <circle cx="168" cy="59" r="11" className="fill-ink-950" />
+      <circle cx="168" cy="59" r="11" className="fill-accent-600" />
       <path
         d="M164 59h8m0 0-3-3m3 3-3 3"
         stroke="white"
@@ -251,7 +251,7 @@ export default function Outcomes() {
             </p>
             <Link
               href="/track"
-              className="group inline-flex items-center gap-2 rounded-pill bg-ink-950 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+              className="group inline-flex items-center gap-2 rounded-pill bg-accent-600 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-accent-700"
             >
               Open a claim
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />

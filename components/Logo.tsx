@@ -1,7 +1,7 @@
 export default function Logo({ size = 26 }: { size?: number }) {
   return (
     <span
-      className="inline-flex items-center justify-center rounded-[7px] bg-ink-950 transition-transform duration-300 group-hover:scale-105"
+      className="inline-flex items-center justify-center rounded-[7px] bg-accent-600 transition-transform duration-300 group-hover:scale-105"
       style={{ width: size, height: size }}
       aria-hidden="true"
     >

@@ -171,7 +171,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/track"
-              className="group mt-8 inline-flex items-center gap-2 rounded-pill bg-ink-950 px-6 py-3 text-[14.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+              className="group mt-8 inline-flex items-center gap-2 rounded-pill bg-accent-600 px-6 py-3 text-[14.5px] font-semibold text-white transition-colors duration-200 hover:bg-accent-700"
             >
               Try the demo claims
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />

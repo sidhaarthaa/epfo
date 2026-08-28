@@ -112,7 +112,7 @@ export default function TrackForm() {
                 <button
                   type="submit"
                   disabled={checking}
-                  className="shrink-0 rounded-pill bg-ink-950 px-6 py-3 text-[14.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900 disabled:opacity-60"
+                  className="shrink-0 rounded-pill bg-accent-600 px-6 py-3 text-[14.5px] font-semibold text-white transition-colors duration-200 hover:bg-accent-700 disabled:opacity-60"
                 >
                   {checking ? "Checking" : "Check status"}
                 </button>

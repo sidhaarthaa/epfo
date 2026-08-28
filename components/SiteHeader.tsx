@@ -31,7 +31,7 @@ export default function SiteHeader() {
             </Link>
             <Link
               href="/track"
-              className="inline-flex min-h-11 items-center rounded-pill bg-ink-950 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+              className="inline-flex min-h-11 items-center rounded-pill bg-accent-600 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-accent-700"
             >
               Track a claim
             </Link>

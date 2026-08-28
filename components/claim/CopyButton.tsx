@@ -26,7 +26,7 @@ export default function CopyButton({
   return (
     <button
       onClick={copy}
-      className="inline-flex min-h-11 items-center gap-2 rounded-pill bg-ink-950 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-ink-900"
+      className="inline-flex min-h-11 items-center gap-2 rounded-pill bg-accent-600 px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors duration-200 hover:bg-accent-700"
     >
       {copied ? <Check size={13} /> : <Copy size={13} />}
       {copied ? "Copied" : label}
