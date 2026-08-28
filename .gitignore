@@ -33,5 +33,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# local agent tooling
+# editor and tooling directories
 /.claude
